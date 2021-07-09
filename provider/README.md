@@ -1,6 +1,6 @@
 # Blank Ethereum Provider API
 
-The Blank Wallet extension injects an ethereum provider on every site that the user visits. This document aim to help developers on connecting with blank wallet's users.
+The Blank Wallet extension injects an ethereum provider on every site that the user visits. This document aims to help developers to connect to Blank Wallet.
 
 ## Provider detection
 
@@ -32,7 +32,7 @@ const detectProvider = (): Promise<EthereumProvider | null> => {
   });
 };
 
-const provider = await detectEthereumProvider();
+const provider = await detectProvider();
 
 if (provider) {
   // Initialize your app
@@ -49,7 +49,7 @@ To detect if the user has Blank Wallet installed on his browser, you can check i
 const isBlankWallet: boolean | undefined = ethereum.isBlank();
 
 if (!isBlankWallet) {
-  console.log('Please install blank wallet 😁');
+  console.log('Please install Blank Wallet 😁');
 }
 ```
 
@@ -80,7 +80,7 @@ At all times, blank wallet will return only one account in the array, that would
 
 ### Accounts
 
-Whenever there is an update on the accounts that the provider should communicate to your app, the event `accountsChanged` triggers.
+Whenever there is an update on the accounts that the provider should communicate to your app, the event `accountsChanged` is emitted.
 
 ```typescript
 ethereum.on('accountsChanged', handler: (accounts: string[]) => void);
