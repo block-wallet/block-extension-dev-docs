@@ -43,10 +43,10 @@ if (provider) {
 
 ## Detect Blank Wallet
 
-To detect if the user has Blank Wallet installed on his browser, you can check if the `isBlank()` method is present in the provider class.
+To detect if the user has Blank Wallet installed on his browser, you can check if the `isBlank` property is available in the detected provider.
 
 ```typescript
-const isBlankWallet: boolean | undefined = ethereum.isBlank();
+const isBlankWallet: boolean | undefined = ethereum.isBlank;
 
 if (!isBlankWallet) {
   console.log('Please install Blank Wallet 😁');
