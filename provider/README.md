@@ -1,10 +1,10 @@
-# Blank Ethereum Provider API
+# BlockWallet Ethereum Provider API
 
-The Blank Wallet extension injects an ethereum provider on every site that the user visits. This document aims to help developers to connect to Blank Wallet.
+The BlockWallet extension injects an ethereum provider on every site that the user visits. This document aims to help developers to connect to Blank Wallet.
 
 ## Provider detection
 
-The blank provider is a class that's instantiated as `window.ethereum` , to check if the user has blank or any other compatible wallet installed, you could use the following:
+The BlockWallet provider is a class that's instantiated as `window.ethereum` , to check if the user has BlockWallet or any other compatible wallet installed, you could use the following:
 
 ```typescript
 const detectProvider = (): Promise<EthereumProvider | null> => {
@@ -41,19 +41,19 @@ if (provider) {
 }
 ```
 
-## Detect Blank Wallet
+## Detect BlockWallet
 
-To detect if the user has Blank Wallet installed on his browser, you can check if the `isBlank` property is available in the detected provider.
+To detect if the user has BlockWallet installed on his browser, you can check if the `isBlockWallet` property is available in the detected provider.
 
 ```typescript
-const isBlankWallet: boolean | undefined = ethereum.isBlank;
+const isBlockWallet: boolean | undefined = ethereum.isBlockWallet;
 
-if (!isBlankWallet) {
-  console.log('Please install Blank Wallet 😁');
+if (!isBlockWallet) {
+  console.log('Please install BlockWallet 😁');
 }
 ```
 
-This value will be undefined if it's not a blank provider.
+This value will be undefined if it's not a BlockWallet provider.
 
 ## Request permissions
 
@@ -74,7 +74,7 @@ const connect = (): string[] => {
 };
 ```
 
-At all times, blank wallet will return only one account in the array, that would be the account the users decides to connect and is active.
+At all times, BlockWallet will return only one account in the array, that would be the account the users decides to connect and is active.
 
 ## Events
 
@@ -86,4 +86,4 @@ Whenever there is an update on the accounts that the provider should communicate
 ethereum.on('accountsChanged', handler: (accounts: string[]) => void);
 ```
 
-If there is no account present, your app may have not be connected to the blank wallet, or the wallet may be locked.
+If there is no account present, your app may have not be connected to the BlockWallet, or the wallet may be locked.
