@@ -1,6 +1,8 @@
 # BlockWallet Ethereum Provider API
 
-The BlockWallet extension injects an ethereum provider on every site that the user visits. This document aims to help developers to connect to Blank Wallet.
+The BlockWallet extension injects an ethereum provider on every site that the user visits. This document aims to help developers to connect to BlockWallet.
+
+## If your project is already support injected providers or specific wallets like MetaMask, your site is most-likely already ready to be used with BlockWallet. As long as you don't specifically check for a certain property like `isMetaMask`, you can connect BlockWallet as you would other browser wallets.
 
 ## Provider detection
 
