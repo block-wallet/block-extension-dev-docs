@@ -2,7 +2,7 @@
 
 The BlockWallet extension injects an ethereum provider on every site that the user visits. This document aims to help developers to connect to BlockWallet.
 
-## If your project is already support injected providers or specific wallets like MetaMask, your site is most-likely already ready to be used with BlockWallet. As long as you don't specifically check for a certain property like `isMetaMask`, you can connect BlockWallet as you would other browser wallets.
+## If your project already supports injected providers or specific wallets like MetaMask, your site is most-likely already ready to be used with BlockWallet. As long as you don't specifically check for a certain property like `isMetaMask`, you can connect BlockWallet as you would other browser wallets.
 
 ## Provider detection
 
@@ -76,7 +76,7 @@ const connect = (): string[] => {
 };
 ```
 
-At all times, BlockWallet will return only one account in the array, that would be the account the users decides to connect and is active.
+At all times, BlockWallet will return only one account in the array, that would be the account the user decides to connect and is active.
 
 ## Events
 
@@ -88,4 +88,4 @@ Whenever there is an update on the accounts that the provider should communicate
 ethereum.on('accountsChanged', handler: (accounts: string[]) => void);
 ```
 
-If there is no account present, your app may have not be connected to the BlockWallet, or the wallet may be locked.
+If there is no account present, your app may not be connected to BlockWallet, or the wallet may be locked.
