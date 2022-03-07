@@ -78,6 +78,56 @@ const connect = (): string[] => {
 
 At all times, BlockWallet will return only one account in the array, that would be the account the user decides to connect and is active.
 
+## Custom Web3Modal connection
+
+Until BlockWallet is supported by Web3Modal natively, you can use it as a custom provider option.
+
+```typescript
+const blockWalletProvider = {
+    id: "injected",
+    name: "BlockWallet",
+    logo: BlockWalletLogo,
+    type: "injected",
+    check: "isBlockWallet"
+}
+
+const providerOptions = {
+    "custom-blockWallet": {
+        display: {
+            logo: BlockWalletLogo,
+            name: "BlockWallet",
+            description: "Connect to BlockWallet",
+        },
+        package: blockWalletProvider,
+        connector: async () => {
+            let provider = null
+
+            if (window.ethereum) {
+                provider = window.ethereum
+
+                if (!provider.isBlockWallet) {
+                    throw new Error("Not a BlockWallet")
+                }
+
+                try {
+                    await provider.request({ method: "eth_requestAccounts" })
+                } catch (error) {
+                    throw new Error("User Rejected")
+                }
+            } else {
+                throw new Error("BlockWallet not found")
+            }
+
+            return provider
+        }
+    },
+}
+
+const web3Modal = new Web3Modal({
+    providerOptions
+})
+```
+
 ## Events
 
 ### Accounts
