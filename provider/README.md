@@ -78,9 +78,13 @@ const connect = (): string[] => {
 
 At all times, BlockWallet will return only one account in the array, that would be the account the user decides to connect and is active.
 
+## Web3Modal
+
+Since version 1.9.6, Web3Modal natively supports BlockWallet. With a default implementation, the BlockWallet option will automatically show up in your modal, if the user has BlockWallet installed and activated.
+
 ## Custom Web3Modal connection
 
-Until BlockWallet is supported by Web3Modal natively, you can use it as a custom provider option.
+You can also add BlockWallet as a custom Web3Modal connection, if for some reason you cannot or do not want to use the default connection.
 
 ```typescript
 const blockWalletProvider = {
