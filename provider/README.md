@@ -55,7 +55,7 @@ if (!isBlockWallet) {
 }
 ```
 
-This value will be undefined if it's not a BlockWallet provider.
+This value will be undefined if it's not a BlockWallet provider. If the value is undefined, you can lead your user to the BlockWallet website at https://blockwallet.io/ or directly to the Chrome Webstore page at https://chrome.google.com/webstore/detail/blockwallet/bopcbmipnjdcdfflfgjdgdjejmgpoaab
 
 ## Request permissions
 
